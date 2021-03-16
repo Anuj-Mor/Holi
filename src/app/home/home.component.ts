@@ -48,19 +48,19 @@ export class HomeComponent implements OnInit, OnDestroy {
         'whatsapp://send?l=en&text=' +
         this.name +
         ' ने आपके लिए कुछ भेजा है  %0A ब्लू लाइन को टच करके देखो  %0A 👇 👇%0A %0A' +
-        encodeURIComponent('http://localhost:4200/home?name=' + this.name) +
+        encodeURIComponent('https://anuj-mor.github.io/Holi/home?name=' + this.name) +
         '%0A%0A' +
         'ब्लू लाइन को टच करके आप भी भेजें %0A 👇 👇%0A %0A' +
-        encodeURIComponent('http://localhost:4200/home');
+        encodeURIComponent('https://anuj-mor.github.io/Holi/home');
     } else {
       this.document.location.href =
         'https://web.whatsapp.com/send?l=en&text=' +
         this.name +
         ' ने आपके लिए कुछ भेजा है  %0A ब्लू लाइन को टच करके देखो  %0A 👇 👇%0A %0A' +
-        encodeURIComponent('http://localhost:4200/home?name=' + this.name) +
+        encodeURIComponent('https://anuj-mor.github.io/Holi/home?name=' + this.name) +
         '%0A%0A' +
         'ब्लू लाइन को टच करके आप भी भेजें %0A 👇 👇%0A %0A' +
-        encodeURIComponent('http://localhost:4200/home');
+        encodeURIComponent('https://anuj-mor.github.io/Holi/home');
     }
   }
 }
