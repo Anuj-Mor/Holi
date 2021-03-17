@@ -35,11 +35,11 @@ img {
 .area {
   text-align: center;
   font-size: 1.6em;
-  color: #000;
+  color: #a70000;
   font-weight: 700;
   text-transform: uppercase;
   animation: blur 0.75s ease-out infinite;
-  text-shadow: 0px 0px 5px #000, 0px 0px 7px #000;
+  text-shadow: 0px 0px 5px #a70000, 0px 0px 7px #a70000;
 }
 
 span {
@@ -88,9 +88,9 @@ span {
     text-shadow: 0px 0px 10px #fff, 0px 0px 10px #fff, 0px 0px 25px #fff,
       0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 25px #fff, 0px 0px 25px #fff,
       0px 0px 25px #fff, 0px 0px 50px #fff, 0px 0px 50px #fff,
-      0px 0px 50px #7b96b8, 0px 0px 50px #7b96b8, 0px 10px 50px #7b96b8,
-      0px 10px 50px #7b96b8, 0px 10px 50px #7b96b8, 0px 10px 50px #7b96b8,
-      0px -10px 50px #7b96b8, 0px -10px 50px #7b96b8;
+      0px 0px 50px #a70000, 0px 0px 50px #a70000, 0px 10px 50px #a70000,
+      0px 10px 50px #a70000, 0px 10px 50px #a70000, 0px 10px 50px #a70000,
+      0px -10px 50px #a70000, 0px -10px 50px #a70000;
   }
 }
 

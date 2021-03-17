@@ -30,7 +30,12 @@
     <div class="container center-div">
       <div class="row">
         <div class="offset-sm-3 col-sm-4 offset-md-4 col-md-3">
-          <div class="area" *ngIf="show">{{ name }}</div>
+          <div class="area" *ngIf="showName">{{ finalName }}</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="offset-sm-3 col-sm-4 offset-md-4 col-md-3">
           <img src="assets/holi-1.png" alt="" />
           <img
             src="assets/holi-2.png"
@@ -111,7 +116,9 @@
                 color: #e91e63;
               "
             >
-              <span>"{{ name }} की तरफ से होली की हार्दिक शुभकामनाएं|"</span>
+              <span
+                >"{{ finalName }} की तरफ से होली की हार्दिक शुभकामनाएं|"</span
+              >
             </p>
           </marquee>
         </div>

@@ -4,14 +4,18 @@ import { Subscription } from 'rxjs';
 
 import { DOCUMENT } from '@angular/common';
 
+declare var gtag;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  public name = "";
+  public name = '';
+  public finalName = '';
   public show: boolean = false;
+  public showName: boolean = false;
   public send: boolean = false;
   public showDiv: boolean = false;
   sub: Subscription;
@@ -25,11 +29,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub = this.route.queryParams.subscribe((param) => {
       if (param['name']) {
-        this.name = param['name'];
-        this.show = true;
+        this.finalName = param['name'];
+        this.showName = true;
       } else {
         this.router.navigate(['']);
-        this.show = false;
+        //this.show = false;
       }
     });
   }
@@ -39,33 +43,43 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onEnterNameClick() {
+    this.finalName = this.name;
+    this.show = true;
+    this.showName = true;
     this.send = true;
+    gtag('event', 'NAME_BUTTON_CLICK', {
+      event_category: 'BUTTON_CLICK',
+      event_label: 'Enter Name Button Click',
+      value: 'Enter Name Button Click',
+    });
     this.router.navigate(['/home'], { queryParams: { name: this.name } });
   }
 
   onSendClick() {
+    gtag('event', 'WHATSAPP_SEND_BUTTON_CLICK', {
+      event_category: 'BUTTON_CLICK',
+      event_label: 'WhatsApp Send Button Click',
+      value: 'WhatsApp Send Button Click',
+    });
+
     if (navigator.userAgent.match(/iPhone|Android/i)) {
       this.document.location.href =
         'whatsapp://send?l=en&text=' +
         this.name +
-        ' ने आपके लिए कुछ भेजा है  %0A ब्लू लाइन को टच करके देखो  %0A 👇 👇%0A %0A' +
+        ' ने आपके लिए कुछ भेजा है  💐💐 %0A ब्लू लाइन को टच करके देखो  %0A 👇 👇%0A %0A' +
         encodeURIComponent(
-          'https://anuj-mor.github.io/Holi/home?name=' + this.name
-        ) +
-        '%0A%0A' +
-        'ब्लू लाइन को टच करके आप भी भेजें %0A 👇 👇%0A %0A' +
-        encodeURIComponent('https://anuj-mor.github.io/Holi/');
+          'http://holi.shreejilending.com/#/home?name=' +
+            encodeURIComponent(this.name)
+        );
     } else {
       this.document.location.href =
         'https://web.whatsapp.com/send?l=en&text=' +
         this.name +
-        ' ने आपके लिए कुछ भेजा है  %0A ब्लू लाइन को टच करके देखो  %0A 👇 👇%0A %0A' +
+        ' ने आपके लिए कुछ भेजा है  💐💐 %0A ब्लू लाइन को टच करके देखो  %0A 👇 👇%0A %0A' +
         encodeURIComponent(
-          'https://anuj-mor.github.io/Holi/home?name=' + this.name
-        ) +
-        '%0A%0A' +
-        'ब्लू लाइन को टच करके आप भी भेजें %0A 👇 👇%0A %0A' +
-        encodeURIComponent('https://anuj-mor.github.io/Holi/');
+          'http://holi.shreejilending.com/#/home?name=' +
+            encodeURIComponent(this.name)
+        );
     }
   }
 
